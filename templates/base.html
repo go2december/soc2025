@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'dist/styles.css' %}" />
+    <script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    <title>
+      {% block title %}
+        Faculty of Social Sciences :: CRRU
+      {% endblock %}
+    </title>
+  </head>
+  <body class="font-bai">
+    {% include 'include/navbar.html' %}
+    <div id="content">
+      {% block content %}
+
+      {% endblock %}
+    </div>
+    {% include 'include/footer.html' %}
+    <script src="{% static 'js/flyonui.js' %}"></script>
+  </body>
+</html>

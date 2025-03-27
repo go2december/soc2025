@@ -1,0 +1,21 @@
+@import url('https://fonts.googleapis.com/css2?family=Bai+Jamjuree&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch&display=swap');
+
+@import "tailwindcss";
+
+@theme {
+    --font-bai: "Bai Jamjuree" , sans-serif;
+    --font-chakra: "Chakra Petch", sans-serif;
+}
+
+@plugin "flyonui" {
+  themes: valorant --default;
+  root: ":root";
+  include: ;
+  exclude: ;
+  logs: true;
+}
+@plugin "@iconify/tailwind4";
+@import "flyonui/variants.css";
+@source "flyonui/dist/index.js";
+@source "flyonui/dist/accordion.js"; 
