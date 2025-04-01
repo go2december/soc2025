@@ -1,38 +1,21 @@
-<div id="image" data-carousel='{ "loadingClasses": "opacity-0", "isAutoPlay" : true , "isInfiniteLoop": true }' class="relative w-full">
-  <div class="carousel">
+<div data-carousel='{ "loadingClasses": "opacity-0", "isAutoPlay" : true , "isInfiniteLoop": true }' class="relative w-full">
+  <div class="carousel rounded-none">
     <div class="carousel-body h-full opacity-0">
+      {% for slide in slides %}
       <!-- Slide 1 -->
-      <div class="carousel-slide">
+      <div class="carousel-slide">        
+        {% if slide.link %}
+        <a href="{{ slide.link }}" target="_blank">
+        {% endif %}
         <div class="flex h-full justify-center">
-        <a href="#">
-          <img src="https://cdn.flyonui.com/fy-assets/components/carousel/image-22.png" class="size-full object-cover" alt="game" />
+          <img src="{{ slide.image.url }}" class="size-full object-cover" alt="{{ slide.title }}" />
+        </div>
+        {% if slide.link %}
         </a>
-        </div>
+        {% endif %}
+        
       </div>
-      <!-- Slide 2 -->
-      <div class="carousel-slide">
-        <div class="flex h-full justify-center">
-          <img src="https://cdn.flyonui.com/fy-assets/components/carousel/image-15.png" class="size-full object-cover" alt="vrbox" />
-        </div>
-      </div>
-      <!-- Slide 3 -->
-      <div class="carousel-slide">
-        <div class="flex h-full justify-center">
-          <img src="https://cdn.flyonui.com/fy-assets/components/carousel/image-16.png" class="size-full object-cover" alt="laptop" />
-        </div>
-      </div>
-      <!-- Slide 4 -->
-      <div class="carousel-slide">
-        <div class="flex h-full justify-center">
-          <img src="https://cdn.flyonui.com/fy-assets/components/carousel/image-8.png" class="size-full object-cover" alt="VRBox" />
-        </div>
-      </div>
-      <!-- Slide 5 -->
-      <div class="carousel-slide">
-        <div class="flex h-full justify-center">
-          <img src="https://cdn.flyonui.com/fy-assets/components/carousel/image-23.png" class="size-full object-cover" alt="iwatch" />
-        </div>
-      </div>
+      {% endfor %}
     </div>
   </div>
   <!-- Previous Slide -->
