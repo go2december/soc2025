@@ -23,6 +23,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = "django-insecure-4hzjr-kz*d5^#p7=p@hzet#1-r5n82xdj=dedp7l^g#slytyoy"
 
+
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
@@ -38,11 +39,12 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-    "django_summernote",
     "app",  # ชื่อแอพพลิเคชันที่เราสร้างขึ้นเอง
     "pages",  # ชื่อแอพพลิเคชันที่เราสร้างขึ้นเอง
+    "news",  # ชื่อแอพพลิเคชันที่เราสร้างขึ้นเอง
     "mediafiles",  # ชื่อแอพพลิเคชันที่เราสร้างขึ้นเอง
-    "news_event",  # ชื่อแอพพลิเคชันที่เราสร้างขึ้นเอง
+    "ckeditor",
+    "ckeditor_uploader",
 ]
 
 MIDDLEWARE = [
@@ -126,11 +128,20 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
 STATIC_URL = "static/"
+STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [BASE_DIR / "static"]  # โฟลเดอร์ที่เก็บไฟล์ Static ของเรา
-MEDIA_URL = "media/"
-MEDIA_ROOT = BASE_DIR / "media"  # โฟลเดอร์ที่เก็บไฟล์ Media ของเรา
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media/")  # โฟลเดอร์ที่เก็บไฟล์ Media ของเรา
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
+CKEDITOR_UPLOAD_PATH = "uploads/"
+CKEDITOR_CONFIGS = {
+    "awesome_ckeditor": {
+        "toolbar": "Basic",
+    },
+}

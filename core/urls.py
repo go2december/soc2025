@@ -14,6 +14,7 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
+
 from django.contrib import admin
 from django.urls import path, include
 from app.views import landing_page
@@ -21,7 +22,7 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
-    path('', landing_page),
-    path('summernote/', include('django_summernote.urls')),  # เพิ่ม Summernote URL
+    path("admin/", admin.site.urls),
+    path("", landing_page),
+    path("ckeditor/", include("ckeditor_uploader.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
