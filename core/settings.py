@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     "mediafiles",  # ชื่อแอพพลิเคชันที่เราสร้างขึ้นเอง
     "ckeditor",
     "ckeditor_uploader",
+    "users",  # แอพพลิเคชันสำหรับจัดการผู้ใช้
 ]
 
 MIDDLEWARE = [
@@ -56,6 +57,8 @@ MIDDLEWARE = [
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
 ]
+
+SITE_ID = 1  # ใช้สำหรับการจัดการหลายเว็บไซต์ใน Django
 
 ROOT_URLCONF = "core.urls"
 
@@ -127,7 +130,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
-STATIC_URL = "static/"
+STATIC_URL = "/static/"
 STATIC_ROOT = os.path.join(BASE_DIR, "staticfiles")
 STATICFILES_DIRS = [BASE_DIR / "static"]  # โฟลเดอร์ที่เก็บไฟล์ Static ของเรา
 MEDIA_URL = "/media/"
@@ -137,6 +140,8 @@ MEDIA_ROOT = os.path.join(BASE_DIR, "media/")  # โฟลเดอร์ที�
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+AUTH_USER_MODEL = "users.CustomUser"  # บอก Django ให้ใช้ CustomUser model
 
 CKEDITOR_BASEPATH = "/static/ckeditor/ckeditor/"
 CKEDITOR_UPLOAD_PATH = "uploads/"
